@@ -5,6 +5,8 @@ if number > 0:
     digit = int(str(number)[-1])
 elif number < 0:
     digit = int("-" + str(number)[-1])
+else:
+    digit = int(0)
 if digit > 5:
     status = "and is greater than 5"
 elif digit == 0:
