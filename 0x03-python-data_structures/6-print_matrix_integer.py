@@ -2,6 +2,7 @@
 def print_matrix_integer(matrix=[[]]):
     if not matrix:
         print()
+        return
     else:
         length, width = len(matrix), len(matrix[0])
         for i in range(width):
