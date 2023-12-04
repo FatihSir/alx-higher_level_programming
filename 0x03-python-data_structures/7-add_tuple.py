@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
-    if (tuple_a == None or tuple_b == None):
-        return None 
+    if tuple_a is None or tuple_b is None:
+        return None
     length_a, length_b = len(tuple_a), len(tuple_b)
     if length_a == 1:
         tuple_a = tuple_a[0], 0
@@ -16,5 +16,4 @@ def add_tuple(tuple_a=(), tuple_b=()):
     elif length_b > 2:
         tuple_b = tuple_b[:2]
     tuple_c = tuple(x + y for x, y in zip(tuple_a, tuple_b))
-
     return tuple_c
