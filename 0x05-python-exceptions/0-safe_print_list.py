@@ -2,9 +2,10 @@
 def safe_print_list(my_list=[], x=0):
     i = 0
     try:
-        for i in range(x):
+        while i != x:
             print("{}".format(my_list[i]), end="")
+            i++
     except IndexError:
         None
     print()
-    return i + 1
+    return i
