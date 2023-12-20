@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" Defining a square module """
+
+
 class Square:
-    def square(self):
-        pass
+    """ Defining a square """
+    pass
