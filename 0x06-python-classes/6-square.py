@@ -20,6 +20,7 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
+        self.position = position
     """
     area: Public instance method
     def area(self): that returns the current square area
@@ -40,10 +41,15 @@ class Square:
         self.__size = value
 
     def my_print(self):
-        for i in range(self.__size):
-            for j in range(self.__size):
-                print("#", end="")
+        if self.__size == 0:
             print()
+        else:
+            for i in range(self.__position[1]):
+                print()
+            for j in range(self.__size):
+                for k in range(self.__position[0]):
+                    print(" ", end="")
+                print("#" * (self.__size))
 
     @property
     def position(self):
