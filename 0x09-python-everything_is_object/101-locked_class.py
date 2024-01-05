@@ -11,5 +11,7 @@ class LockedClass:
     first_name (str): the first name of the user
     """
 
+    __slots__ = ["first_name"]
+
     def __init__(self):
         self.first_name = "first_name"
