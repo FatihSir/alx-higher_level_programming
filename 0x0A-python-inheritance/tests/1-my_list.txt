@@ -1,0 +1,23 @@
+The ``1-my_list`` module
+============================
+
+Using ``1-mylist``
+---------------------
+
+Import function from Module:
+    >>> MyList = __import__('1-my_list').MyList
+
+Correct Class Type test:
+    >>> my_list = MyList()
+    >>> type(my_list) == MyList
+    True
+
+Correct Instance test:
+    >>> my_list = MyList()
+    >>> isinstance(my_list, list)
+    True
+
+print_sorted method is an instance method:
+    >>> type(MyList.__dict__['print_sorted'])
+    <class 'function'>
+
