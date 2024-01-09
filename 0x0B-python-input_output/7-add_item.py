@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Load, add, save : adds all arguments to a Python list"""
+"""Load, add, save"""
 import sys
 
 if __name__ == "__main__":
     save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
     load_from_json_file = \
-        __import__('6-load_from_json_file').load_from_json_filei
+        __import__('6-load_from_json_file').load_from_json_file
 
     try:
         items = load_from_json_file("add_item.json")
