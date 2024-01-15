@@ -19,6 +19,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, v):
+        self.validate_integer("width", v)
         self.__width = v
 
     @property
@@ -28,6 +29,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, v):
+        self.validate_integer("height", v)
         self.__height = v
 
     @property
@@ -37,6 +39,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, v):
+        self.validate_integer("x", v, False)
         self.__x = v
 
     @property
@@ -46,4 +49,14 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, v):
+        self.validate_integer("y", v, False)
         self.__y = v
+
+    def validate_integer(self, name, v, distinct=True):
+        """ Validate attributes method """
+        if type(v) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if distinct and v <= 0:
+            raise ValueError("{} must be > 0".format(name))
+        elif not distinct and v < 0:
+            raise ValueError("{} must be >= 0".format(name))
