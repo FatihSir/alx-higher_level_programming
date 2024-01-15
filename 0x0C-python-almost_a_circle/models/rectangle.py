@@ -82,3 +82,18 @@ class Rectangle(Base):
         """ Class Info Method"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
+
+    def update(self, *args, **kwargs):
+        """Update Method
+
+        Args:
+            *args (tuple): arguments.
+            **kwargs (dict): double pointer to a dictionary.
+        """
+        if args is not None and len(args) is not 0:
+            l_attribute = ['id', 'width', 'height', 'x', 'y']
+            for i in range(len(args)):
+                setattr(self, l_attribute[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
