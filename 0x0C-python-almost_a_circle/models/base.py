@@ -2,6 +2,7 @@
 """ Base class """
 from json import dumps, loads
 import csv
+from os import path
 
 
 class Base:
@@ -31,3 +32,12 @@ class Base:
         if json_string is None or not json_string:
             return []
         return loads(json_string)
+
+    @classmethod
+    def load_from_file(cls):
+        """File to instances"""
+        file = "{}.json".format(cls.__name__)
+        if not path.isfile(file):
+            return []
+        with open(file, "r", encoding="utf-8") as f:
+            return [cls.create(**d) for d in cls.from_json_string(f.read())]
