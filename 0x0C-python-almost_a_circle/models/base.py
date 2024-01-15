@@ -41,3 +41,17 @@ class Base:
             return []
         with open(file, "r", encoding="utf-8") as f:
             return [cls.create(**d) for d in cls.from_json_string(f.read())]
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Dictionary to Instance"""
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            new = Rectangle(1, 1)
+        elif cls is Square:
+            new = Square(1)
+        else:
+            new = None
+        new.update(**dictionary)
+        return new
