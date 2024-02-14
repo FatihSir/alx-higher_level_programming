@@ -3,4 +3,4 @@
 SELECT id, name
 FROM cities
 WHERE id = 1
-ORDER BY cities.id ASCE;
+ORDER BY cities.id;
