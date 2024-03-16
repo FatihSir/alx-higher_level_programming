@@ -10,7 +10,8 @@ if __name__ == "__main__":
                          db=argv[3], port=3306)
     cur = db.cursor()
     s_name = argv[4]
-    cur.execute('SELECT * FROM states WHERE name = s_name ORDER BY id ASC')
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY\
+                's_name' ORDER BY id ASC")
     states = cur.fetchall()
     for state in states:
         print(state)
