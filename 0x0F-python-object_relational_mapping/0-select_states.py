@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""a script that lists all states from the database hbtn_0e_0_usa"
+"""a script that lists all states from the database hbtn_0e_0_usa"""
 import MySQLbd
 from sys import argv
 
@@ -13,4 +13,4 @@ if __name__ == "__main__":
     for state in states:
         print(state)
     cur.close()
-    db.close()   
+    db.close()
