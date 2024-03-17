@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" a script that lists all cities from the database hbtn_0e_4_usa """
+"""
+a script that lists all cities from the database hbtn_0e_4_usa
+"""
 import MySQLdb
 from sys import argv
 
@@ -10,7 +12,7 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute("SELECT cities.id, cities.name, states.name FROM cities\
                  INNER JOIN states ON states.id = cities.state_id\
-                 ORDER BY cities.state_id ASC")
+                 ORDER BY cities.id ASC")
     states = cur.fetchall()
     for state in states:
         print(state)
