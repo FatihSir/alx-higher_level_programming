@@ -2,13 +2,8 @@
 """ Rectangle Module Definition """
 
 
-class Rectangle():
-    """Rectangle Class Definition with width and height.
-
-    Attributes:
-        width (int): the width of the rectangle (private).
-        height (int): the height of the rectangle (private).
-    """
+class Rectangle:
+    """Rectangle Class Definition with width and height."""
 
     def __init__(self, width=0, height=0):
         """Initialization method to set the height and the width.
@@ -27,13 +22,13 @@ class Rectangle():
         Return:
             width (int): returns the width of the rectangle
         """
-        return (self.__width)
+        return self.__width
 
     @width.setter
     def width(self, value):
         """A method to set rectangle width value.
         Args:
-            width (int): the width of the rectangle
+            value (int): the width of the rectangle
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -48,14 +43,14 @@ class Rectangle():
         Return:
             height (int): returns the rectangle's height value
         """
-        return (self.__height)
+        return self.__height
 
     @height.setter
     def height(self, value):
         """A method to set rectangle's height value.
 
         Args:
-            height (int): the height of the rectangle
+            value (int): the height of the rectangle
         """
 
         if not isinstance(value, int):
@@ -72,7 +67,7 @@ class Rectangle():
             area (int): returns the rectangle's area.
         """
         area = self.__height * self.__width
-        return (area)
+        return area
 
     def perimeter(self):
         """A method to return rectangle's perimeter.
@@ -80,6 +75,7 @@ class Rectangle():
         Return:
             perimeter (int): returns the rectangle's perimeter
         """
-
+        if self.__height == 0 or self.__width == 0:
+            return 0
         perimeter = 2 * self.__height + 2 * self.__width
-        return (perimeter)
+        return perimeter
