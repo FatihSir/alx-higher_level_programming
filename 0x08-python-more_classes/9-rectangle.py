@@ -22,8 +22,18 @@ class Rectangle:
             width (int): the width of the rectangle (0 by default).
             height (int): the height of the rectangle (0 by default).
          """
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        elif width < 0:
+            raise ValueError("width must be >= 0")
         self.__width = width
+
+        if not isinstance(height, int):
+            raise TypeError("width must be an integer")
+        elif height < 0:
+            raise ValueError("height must be >= 0")
         self.__height = height
+
         Rectangle.number_of_instances += 1
 
     @property
