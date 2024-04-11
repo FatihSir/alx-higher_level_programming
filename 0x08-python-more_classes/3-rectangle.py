@@ -87,6 +87,8 @@ class Rectangle:
             result (str): return the rectangle in '#' symbol string format
         """
         result = ""
+        if self.__height == 0 or self.__height == 0:
+            return result
         for i in range(self.__height):
             if i == self.__height - 1:
                 result += "#" * self.__width
