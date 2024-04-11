@@ -103,7 +103,7 @@ class Rectangle:
         for i in range(self.__height):
             for j in range(self.__width):
                 result = result + f"{self.print_symbol}"
-                if i == self.__height - 1 and j == self.height - 1:
+                if i == self.__height - 1 and j == self.__width - 1:
                     return result
             result = result + "\n"
         return result
