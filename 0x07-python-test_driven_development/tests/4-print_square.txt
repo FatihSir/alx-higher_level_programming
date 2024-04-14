@@ -1,0 +1,84 @@
+Test ```4-print_square``` Module
+________________________________
+--------------------------------
+
+Test Cases:
+===========
+1- Test negative inputs
+2- Test zero
+3- Test float value
+4- Test invalid inputs
+5- Test empty function
+6- Test positive values
+7- Test NaN
+8- Test infinity
+_________________________________
+---------------------------------
+
+# Import the module
+>>> print_square = __import__('4-print_square').print_square
+
+# Test negative inputs
+>>> print_square(-3) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+# Test zero
+>>> print_square(-3) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+# Test float value
+>>> print_square(5.5) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+# Test invalid inputs
+>>> print_square('Text') # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+# Test empty function
+>>> print_square() # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'
+
+# Test NaN
+>>> print_square(float('nan')) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+# Test infinity
+>>> print_square(int(float('inf'))) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+# Test positive values
+>>> print_square(1)
+#
+
+>>> print_square(5)
+#####
+#####
+#####
+#####
+#####
+
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
