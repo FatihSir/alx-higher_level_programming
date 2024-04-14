@@ -1,0 +1,125 @@
+Test ```2-matrix_divided``` Module
+----------------------------------
+The test cases consist:
+_________________________________________________________
+---------------------------------------------------------
+1- Dividing by zero
+2- Testing different matrix sizes
+3- Testing one element matrix
+4- Testing infinity
+5- Testing NaN
+6- Testing different inputs
+7- Testing invalid inputs (data types : list, string, int)
+8- Testing value overflow
+9- Testing 2 digits rounding
+10- Testing empty function
+__________________________________________________________
+----------------------------------------------------------
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# Dividing by zero
+>>> matrix_divided([
+... [3, 4, 6],
+... [18, 3, 9],
+... [88, 100, 10]], 0) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+# Testing one element matrix
+>>> matrix_divided([[27]], 3)
+[[9.0]]
+
+# Testing different matrix sizes
+>>> matrix_divided([
+... [18, 3, 9, 12 , 123],
+... [12, 56, 65, 7, 234]], 23)
+[[0.78, 0.13, 0.39, 0.52, 5.35], [0.52, 2.43, 2.83, 0.3, 10.17]]
+
+>>> matrix_divided([
+... [18, 3],
+... [99, 95]], 20)
+[[0.9, 0.15], [4.95, 4.75]]
+
+>>> matrix_divided([
+... [18],
+... [28],
+... [230],
+... [23]], 23)
+[[0.78], [1.22], [10.0], [1.0]]
+
+>>> matrix_divided([
+... [1, 2, 3],
+... [4, 5],
+... [6, 7, 8]], 34) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+# Testing Invalid values for both matrix and divider
+>>> matrix_divided([
+... [1, 2, 3],
+... ["4", "five", 4]], 23) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([
+... [1, 2, 3],
+... [4, 5, 6]], "three") #doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+#Testing empty function
+>>> matrix_divided() #doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+# Testing infinity
+>>> matrix_divided([
+... [float('inf'), float('-inf'), 3]], 4)
+[[inf, -inf, 0.75]]
+
+>>> matrix_divided([
+... [1, 2, 3]], float('inf'))
+[[0.0, 0.0, 0.0]]
+
+>>> matrix_divided([
+... [1, 2, 3]], float('-inf'))
+[[-0.0, -0.0, -0.0]]
+
+# Testing NaN
+>>> matrix_divided([
+... [1, 2, 3]], float('nan'))
+[[nan, nan, nan]]
+
+>>> matrix_divided([
+... [1, 2, float('nan')]], 3)
+[[0.33, 0.67, nan]]
+
+# Testing 2 digits rounding
+>>> matrix_divided([
+... [29.2342232, 2.2343, 3.1342]], 3)
+[[9.74, 0.74, 1.04]]
+
+# Testing different input values
+>>> matrix_divided([
+... [0, -2.2312, 3.1323]], 3.34)
+[[0.0, -0.67, 0.94]]
+
+>>> matrix_divided([
+... [0, -2.2312, 3 + 5j]], 3.34) #doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Testing large numbers
+>>> matrix_divided([
+... [0, -233324323312132324343454544646421232342, 3.1323]], 3.34)
+[[0.0, -6.985758182997974e+37, 0.94]]
+
+>>> matrix_divided([
+... [1, 2, 3]], 99389283181183139138319381938)
+[[0.0, 0.0, 0.0]]
