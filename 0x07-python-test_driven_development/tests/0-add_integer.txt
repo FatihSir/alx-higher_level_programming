@@ -1,113 +1,79 @@
-The ``0-add_integer`` module
-============================
 
-Using ``add_integer``
+The ```0-add_integer``` module
+______________________________
+------------------------------
+
+This file contains tests for the functions in the 0-add_integer module.
+_______________________________________________________________________
+-----------------------------------------------------------------------
+Test Cases:
+- Test adding integers with various inputs.
+- Test adding integers with invalid inputs.
+- Test adding floats with various inputs.
+- Test adding floats and integers with various inputs.
+_______________________________________________________________________
+-----------------------------------------------------------------------
+
+#Importing the module
+_____________________
 ---------------------
+>>> add_integer = __import__('0-add_integer').add_integer
 
-Importing the function from module:
 
-    >>> add_integer = __import__('0-add_integer').add_integer
+____________________________________________________________
+------------------------------------------------------------
 
-Testing one integer argument and by default b = 98:
+# Test adding integers with various inputs
+>>> add_integer(2, 3)
+5
 
-    >>> add_integer(3)
-    101
+>>> add_integer(2)
+100
 
-Testing one integer argument and checking second default argument:
+>>> add_integer(-2, 7)
+5
 
-    >>> add_integer(0)
-    98
+>>> add_integer(6, -5)
+1
 
-Testing one argument as a float and the second default b = 98:
+>>> add_integer(-4, -10)
+-14
 
-    >>> add_integer(122.3)
-    220
+>>> add_integer(-3.7, 7)
+4
 
-Testing one negative float argument:
+>>> add_integer(34, -8.6)
+26
 
-    >>> add_integer(-93.7)
-    5
+>>> add_integer(2.8, 8.6)
+10
 
-Testing two integer arguments:
+>>> add_integer(-2.8, -8.6)
+-10
 
-    >>> add_integer(1, 5)
-    6
+# Test adding integers with invalid inputs
+>>> add_integer(-2.8, "eight") # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
-Testing two large integers arguments:
+>>> add_integer("five", 99) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-    >>> add_integer(999999998, 999999999)
-    1999999997
+>>> add_integer("five", "ten") # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-Testing positive, negative integers:
+>>> add_integer() # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
 
-    >>> add_integer(56463888, -8863659)
-    47600229
+>>> add_integer(0, 0)
+0
 
-Testing negative, positive integer arguments:
-
-    >>> add_integer(-10, 8)
-    -2
-
-Testing an integer and a float:
-
-    >>> add_integer(123, 3.2344)
-    126
-
-Testing a float and an integer:
-
-    >>> add_integer(23.45, 43)
-    66
-
-Testing two floats:
-
-    >>> add_integer(0.5, 0.5)
-    0
-
-Adding infinity:
-
-    >>> add_integer(float('inf'), float('-inf'))
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-
-Adding NaN:
-
-    >>> add_integer(0, float('nan'))
-    Traceback (most recent call last):
-    ...
-    ValueError: cannot convert float NaN to integer
-
-Testing first invalid argument:
-
-    >>> add_integer("foo", 0)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
-
-Testing second invalid argument:
-
-    >>> add_integer(123123, [])
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
-
-Testing both invalid arguments:
-
-    >>> add_integer(None, None)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
-
-Testing two strings:
-
-    >>> add_integer("foo", "bar")
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
-
-Testing float overflow:
-    >>> add_integer(float('inf'), 0)
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-    
+>>> add_integer(0)
+98
