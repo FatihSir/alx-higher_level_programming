@@ -77,3 +77,21 @@ TypeError: add_integer() missing 1 required positional argument: 'a'
 
 >>> add_integer(0)
 98
+
+#Testing float overflow:
+>>> add_integer(float('inf'), 0) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+#Adding infinity:
+>>> add_integer(float('inf'), float('-inf')) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+#Adding NaN:
+>>> add_integer(0, float('nan')) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
