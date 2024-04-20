@@ -1,0 +1,53 @@
+Test ```text_indentation``` module
+___________________________________
+-----------------------------------
+
+Test Cases:
+===========
+1- Test invalid inputs (Not a string)
+2- Test duplicated characters "?", ".", ":"
+____________________________________________
+--------------------------------------------
+
+# Import the module
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test Invalid inputs
+>>> text_indentation(float('nan')) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+>>> text_indentation(39) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+>>> text_indentation() # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+# Test duplicated characters
+>>> text_indentation("This is testing:: duplicated ? to see the how the result.. is looks like") # doctest: +NORMALIZE_WHITESPACE
+This is testing:
+<BLANKLINE>
+:
+<BLANKLINE>
+duplicated ?
+<BLANKLINE>
+to see the how the result.
+<BLANKLINE>
+.
+<BLANKLINE>
+is looks like
+
+# Test normal string
+>>> text_indentation("This: is? just. a test!")
+This:
+<BLANKLINE>
+is?
+<BLANKLINE>
+just.
+<BLANKLINE>
+a test!
