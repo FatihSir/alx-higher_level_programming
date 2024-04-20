@@ -23,6 +23,7 @@ class TestMaxInteger(unittest.TestCase):
         self.t = (129, 192, 19,)
         self.list_6 = [float('-inf'), float('inf'), 0, 10]
         self.list_7 = [-2.5, 99.99, 25, 0, 32, -90]
+        self.list_8 = [1995, 1970, 1985, 1993]
 
     def test_invalid(self):
         """A method to test invalid values resulted in 'TypeError'"""
@@ -45,6 +46,7 @@ class TestMaxInteger(unittest.TestCase):
         """A method to test regular integer in a list"""
         self.assertEqual(max_integer(self.list_1), 10)
         self.assertEqual(max_integer(self.list_2), 0)
+        self.assertEqual(max_integer(self.list_9), 1995)
 
     def test_negative(self):
         """A method to test regular negative values in a list"""
