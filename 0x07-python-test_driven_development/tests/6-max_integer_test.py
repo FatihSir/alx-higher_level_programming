@@ -46,7 +46,7 @@ class TestMaxInteger(unittest.TestCase):
         """A method to test regular integer in a list"""
         self.assertEqual(max_integer(self.list_1), 10)
         self.assertEqual(max_integer(self.list_2), 0)
-        self.assertEqual(max_integer(self.list_9), 1995)
+        self.assertEqual(max_integer(self.list_8), 1995)
 
     def test_negative(self):
         """A method to test regular negative values in a list"""
