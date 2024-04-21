@@ -25,29 +25,25 @@ _________________________________
 >>> lazy_matrix_mul([[]], [[]])
 Traceback (most recent call last):
 ...
-ValueError: shapes (1,0) and (1,0) not aligned: 0 (dim 1) != 1 (dim 0)
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 1 is different from 0)
 
 # Not compatible
 >>> lazy_matrix_mul([[2, 4, 5], [2, 4, 6]], [[4, 5, 7], [12, 1.3, 6]])
 Traceback (most recent call last):
 ...
-ValueError: shapes (2,3) and (2,3) not aligned: 3 (dim 1) != 2 (dim 0)
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 3)
 
 # None
 >>> lazy_matrix_mul(None, None)
 Traceback (most recent call last):
 ...
-TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
-
-# Empty
->>> lazy_matrix_mul(None, None)
-Traceback (most recent call last):
-...
-TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
+ValueError: matmul: Input operand 0 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
 
 # Not a list
 >>> lazy_matrix_mul(2, 10)
-20
+Traceback (most recent call last):
+...
+ValueError: matmul: Input operand 0 does not have enough dimensions (has 0, gufunc core with signature (n?,k),(k,m?)->(n?,m?) requires 1)
 
 # Not a list of lists
 >>> lazy_matrix_mul([1, 4, 5], [1, 39, 10])
@@ -60,12 +56,12 @@ array([207, 217])
 >>> lazy_matrix_mul([["M", 1], [2, 3]], [[1, 3], [1, 4]])
 Traceback (most recent call last):
 ...
-ValueError: data type must provide an itemsize
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('<U21'), dtype('int64')) -> None
 
 >>> lazy_matrix_mul([[2, 1], [2, 3]], [[1, 3], ["a", 4]])
 Traceback (most recent call last):
 ...
-ValueError: data type must provide an itemsize
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'matmul' did not contain a loop with signature matching types (dtype('int64'), dtype('<U21')) -> None
 
 # Not a rectangle
 >>> lazy_matrix_mul([[2, 1], [2, 2, 3]], [[1, 3], [-10, 4]])

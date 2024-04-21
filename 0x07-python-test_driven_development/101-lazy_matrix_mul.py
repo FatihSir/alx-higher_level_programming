@@ -17,7 +17,7 @@ def lazy_matrix_mul(m_a, m_b):
         the first and the second matrix
     """
 
-    result = np.dot(m_a, m_b)
+    result = np.matmul(m_a, m_b)
     return result
 
 
