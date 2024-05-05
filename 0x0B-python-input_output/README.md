@@ -1,6 +1,6 @@
 # 0x0B.Python-Input/Output
 ![](1.png)
-Before you start solving the task you have to make sure that you are familir with:
+Before you start solving the tasks you have to make sure that you are familiar with:
 - Why Python programming is awesome
 - How to open a file
 - How to write text in a file
