@@ -9,4 +9,3 @@ const args = process.argv.slice(2);
 const list = args.map(Number).sort((a, b) => a - b);
 console.log(list[list.length - 2]);
 }
-
