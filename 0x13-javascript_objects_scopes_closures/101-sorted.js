@@ -3,7 +3,7 @@
 // user id and computes a dictionary of user ids by occurrence.
 
 const dict = require('./101-data').dict;
-let myDict = {};
+const myDict = {};
 let k;
 for (k in dict) {
   myDict[dict[k]] = [];
