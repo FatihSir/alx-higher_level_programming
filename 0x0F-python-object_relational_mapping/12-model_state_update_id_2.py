@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Get a state """
+""" iUpdate a state """
 
 
 from model_state import Base, State
@@ -17,10 +17,7 @@ if __name__ == "__main__":
     session = Session()
     Base.metadata.create_all(engine)
 
-    s_tate = session.query(State).filter(State.name == argv[4]).first()
-
-    if s_tate:
-        print("{}".format(s_tate.id))
-    else:
-        print("Not found")
+    state_update = session.query(State).filter_by(id='2').first()
+    state_update.name = "New Mexico"
+    session.commit()
     session.close()
