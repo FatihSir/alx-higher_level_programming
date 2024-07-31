@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 //A script that reads and prints the content of a file.
 
 
