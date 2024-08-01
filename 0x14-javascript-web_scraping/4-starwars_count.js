@@ -3,7 +3,7 @@
 
 const request = require('request');
 const requestURL = process.argv[2];
-const ID = "18";
+const ID = '18';
 let count = 0;
 
 request({ url: requestURL, json: true }, (error, response) => {
